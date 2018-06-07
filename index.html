@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+        <script data-main="scripts/config" src="scripts/require.js"></script>
+
+
+    <title>LUIS Demo</title>
+
+    Text: <input type="text" id="input"><br>
+    <button type="button" id="btn-process">Process!</button>
+</head>
+<body>
+
+<script>
+    require([ "config" ], function() {
+        console.log("Config loaded");
+
+        var key="21e09a93077d410fa9b3a63b07732960";
+        var appId="fa7b1bb6-ab5f-4090-ad59-6ea5381a181d";
+
+        require([ "api"], function(api) {
+            console.log( api );
+            var A =  new api.LUIS(appId,key);
+            console.log(A);
+            A.then(A.request("Hallo"));
+
+         
+        });
+    })
+
+</script>
+</body>
+</html>
+
