@@ -5,7 +5,8 @@ require.config({
     paths: {
         "config": "config",
         "api"   : "api",
-        "jquery": "//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min"
+        "jquery": "//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min",
+        "rect"  : "rect"
     },
     waitSeconds: 15
   });

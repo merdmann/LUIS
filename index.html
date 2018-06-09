@@ -14,19 +14,15 @@
 <body>
 
 <script>
-    require([ "config" ], function() {
-        console.log("Config loaded");
-
+    require([ "config" ], function(conf) {
         var key="21e09a93077d410fa9b3a63b07732960";
         var appId="fa7b1bb6-ab5f-4090-ad59-6ea5381a181d";
 
         require([ "api"], function(api) {
             console.log( api );
-            var A =  new api.LUIS(appId,key);
-            console.log(A);
-            A.then(A.request("Hallo"));
+            var A =  new api(key,appId);
 
-         
+            A.request("Hallo").then(function(data) { console.log(data.topScoringIntent);});
         });
     })
 
