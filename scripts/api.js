@@ -1,4 +1,21 @@
-
+// File api.js
+// Copyright (c) 2018 Michael Erdmann
+//
+// Permission is hereby granted, to any person obtaining a copy of this software and associated 
+// documentation files (the "Software"), to deal in the Software without restriction, including 
+// without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+// copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+// subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or 
+// substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
+// NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+// NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// 
 'use strict';
 define( ["jquery"], function( jQuery) {
       
@@ -35,37 +52,7 @@ define( ["jquery"], function( jQuery) {
 
         return defered;
     }
-            
-        /*request( query ) {
-            this.defered = new Promise(
-                function( resolve, reject) {
-                    const _endPoint_ = this.getEndPoint();
 
-                    jQuery.get(_endPoint_, {
-                        "subscription-key": this.key,
-                        "verbose": true, 
-                        "timezoneOffset": 0, 
-                        "q" :query }, 
-                        function( data, textstatus, jqxhdr ) {             
-                            console.log(textstatus);
-                            if(textstatus !== "Sucess") {
-                                reject(textstatus);    
-                            }
-                            else {
-                                resolve(data);
-                            }
-                    }, "json"); 
-                });
-            return this.defered 
-        };*/
-
-    LUIS.prototype.display = function(){
-            console.log(this.appId);
-            console.log(this.key);
-            console.log(this.name);
-            console.log(this.query);
-    }
-    
     return LUIS;     
 });
         
