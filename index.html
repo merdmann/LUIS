@@ -2,30 +2,31 @@
 <html>
 <head>
     <meta charset="utf-8">
-    
-        <script data-main="scripts/config" src="scripts/require.js"></script>
-
+        <script data-main="scripts/config" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
 
     <title>LUIS Demo</title>
 
-    Text: <input type="text" id="input"><br>
+	Text: <input type="text" id="input"><br>
     <button type="button" id="btn-process">Process!</button>
 </head>
 <body>
 
 <script>
-    require([ "config" ], function(conf) {
-        var key="21e09a93077d410fa9b3a63b07732960";
-        var appId="fa7b1bb6-ab5f-4090-ad59-6ea5381a181d";
+require([ "api"], function( api ) {	
+    var key="21e09a93077d410fa9b3a63b07732960";
+    var appId="fa7b1bb6-ab5f-4090-ad59-6ea5381a181d";
 
-        require([ "api"], function(api) {
-            console.log( api );
-            var A =  new api(key,appId);
-
-            A.request("fetch shoes").then(function(data) { console.log(data.topScoringIntent);});
-        });
-    })
-
+    var A =  new api(key,appId);
+	
+	$(document).ready( function() {
+    	document.getElementById("btn-process").addEventListener("click", function() {	
+    	var input = $("#input").val();
+    	console.log("Button click " + input);
+    	A.request(input).then(function(data) { console.log(data.topScoringIntent);} ); 
+	});
+  
+  });
+});
 </script>
 </body>
 </html>

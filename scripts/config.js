@@ -24,12 +24,12 @@
 require.config({
     baseUrl: "/scripts",
     paths: {
-        "config": "config",
-        "api"   : "api",
-        "jquery": "//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min",
-        "rect"  : "rect"
+        "jquery"  : "jquery-3.3.1.min",
+        "config" : "config",
+        "api"    : "api",
+        "test"   : "helper/test"
     },
-    waitSeconds: 15
+    waitSeconds: 40
   });
 
  
