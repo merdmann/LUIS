@@ -22,12 +22,14 @@ require([ "api"], function( api ) {
     	document.getElementById("btn-process").addEventListener("click", function() {	
     	var input = $("#input").val();
     	console.log("Button click " + input);
-    	A.request(input).then(function(data) { console.log(data.topScoringIntent);} ); 
+    	A.request(input).then(function(data) { 
+            $("p").text(JSON.stringify(data.topScoringIntent));
+        }); 
 	});
-  
   });
 });
 </script>
+<p> </p>
 </body>
 </html>
 
