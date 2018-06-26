@@ -1,35 +1,145 @@
 <!doctype html>
-<html>
-<head>
+<html lang=en>
+<head style="text-align:center;">
     <meta charset="utf-8">
-        <script data-main="scripts/config" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
-
-    <title>LUIS Demo</title>
-
-	Text: <input type="text" id="input"><br>
-    <button type="button" id="btn-process">Process!</button>
+    <script data-main="scripts/config" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+    <title>System 47</title>
 </head>
-<body>
+<body  style="background-color:black">
+<div class="grid-container"></div>
 
+	<div class="row logo" style="height: 200px; text-align: right; background-color: Silver;">
+	 <span>SYSTEM 47      </span>
+	</div>
+	
+	<div class="row" style="height: 120px">
+	   <input class="readable-black" type="text" id="input"><br>
+	</div>
+	<div class="row">
+       <button type="button" class=button47blue id="btn-process">547-00</button>
+       <button type="button" class=button47blue id="btn-cancel">547-01</button>
+    </div>
+    <div class=row>
+       <button type="button" class=button47blue id="btn-cancel">547-99</button>
+       <button type="button" class=button47red  id="btn-cancel">547-99</button>
+       <button type="button" class=button47blue id="btn-do">547-99</button>
+    </div>
+    </div>
+<div/>   
+<style>
+
+	.head {
+		background-color: Silver;
+		align-items: center;
+		justify-content: center
+		 
+	}
+
+    .body {
+    	background-color: #000000';
+    }
+    
+    .logo {
+    	backgound-color: Silver;
+    	font-size: 40px;
+    	font-family: Verdana;
+    	border-radius: 100px;
+    	height: 100px; 	
+    }}
+    
+    .page-wrap { background: black; }
+	.footer { background: black; }
+	.almonds { background: black; }
+	
+    .readable {
+    	color: white;
+        font-style: normal;
+        font-size: 40px;
+        
+    }
+    
+    .readable-black {
+    	color: black;
+        font-style: normal;
+        font-size: 40px;
+        
+    }
+    
+    .grid-container {
+  		display: inline-grid;
+	}
+	
+	.button47blue {
+		 width: 360px; 
+		 height:120px; 
+		 background-color: #957bbe; 
+		 text-align: right;
+		 font-family: Verdana;
+		 font-size: 40px;
+		 color: white;
+		 margin-left: 20px;
+		 margin-top: 5px;
+		 marging-bottom: 5px;
+	}
+	
+	.button47red {
+		 width: 360px; 
+		 height:120px; 
+		 background-color: red; 
+		 text-align: right;
+		 font-family: Verdana;
+		 font-size: 40px;
+		 color: white;
+		 margin-left: 20px;
+		 margin-top: 5px;
+		 marging-bottom: 5px;
+	}
+	
+</style>
 <script>
-require([ "api"], function( api ) {	
+
+
+require([ "api"], function( api ) {
+	
+	$(document).ready( function() {
+		var bg = new Audio("tng_bridge_1.mp3");
+		bg.play();
+		
+	});
+	
     var key="21e09a93077d410fa9b3a63b07732960";
     var appId="fa7b1bb6-ab5f-4090-ad59-6ea5381a181d";
 
     var A =  new api(key,appId);
-	
+    
+  
 	$(document).ready( function() {
+	
+		
     	document.getElementById("btn-process").addEventListener("click", function() {	
     	var input = $("#input").val();
     	console.log("Button click " + input);
-    	A.request(input).then(function(data) { 
-            $("p").text(JSON.stringify(data.topScoringIntent));
+    	$("#textarea").text("Button click " + input);
+    	A.request(input).then(function(data) {
+    		console.log( data );
+    	  	var audio = new Audio("beep.mp3");
+        	audio.play();
+        	
+            $("#textarea").text(input + " --> " + JSON.stringify(data.topScoringIntent));
         }); 
-	});
+	});    	
   });
+	
+	
 });
+
 </script>
-<p> </p>
+
+
+<marquee height="300px" behavior="scroll" direction="down"  class="readable" id="textarea">
+
+</marquee>
+
 </body>
 </html>
 
